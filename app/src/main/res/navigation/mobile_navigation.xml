@@ -16,6 +16,11 @@
         android:name="com.nur_ikhsan.marketplace.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/navigation_keranjang"
+        android:name="com.nur_ikhsan.marketplace.ui.Keranjang.Keranjang_Fragment"
+        android:label="@string/title_keranjang"
+        tools:layout="@layout/fragment_keranjang" />
 
     <fragment
         android:id="@+id/navigation_notifications"
