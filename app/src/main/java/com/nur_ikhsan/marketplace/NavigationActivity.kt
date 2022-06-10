@@ -1,5 +1,6 @@
 package com.nur_ikhsan.marketplace
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -10,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.nur_ikhsan.marketplace.Util.Prefs
 import com.nur_ikhsan.marketplace.databinding.ActivityNavigationsBinding
+import com.nur_ikhsan.marketplace.ui.login.LoginActivity
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -31,19 +33,21 @@ class NavigationActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id. navigation_keranjang
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+       // setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         navView.setOnItemSelectedListener {
 
             if (it.itemId == R.id.navigation_notifications){
                 val s = Prefs(this)
                 if (s.getIsLogin()){
+                    Log.d("TAG", "Sudah Login")
+                    navController.navigate(it.itemId)
                 }else{
-                    Log.d("TAG", "onCreate : Sudah Login")
+                    startActivity(Intent(this, LoginActivity ::class.java))
+                    Log.d("TAG", "belum login pindah ke menu login")
                 }
-
-                Log.d("TAG", "onCreate : belum login pindah ke menu login")
             }else {
+                navController.navigate(it.itemId)
                 Log.d("TAG", "onCreat : yang lain" + it.itemId)
             }
             return@setOnItemSelectedListener true
