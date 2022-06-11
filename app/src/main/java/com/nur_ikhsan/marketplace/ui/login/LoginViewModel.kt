@@ -1,11 +1,11 @@
-package com.nur_ikhsan.marketplace.ui.home
+package com.nur_ikhsan.marketplace.ui.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.nur_ikhsan.marketplace.core.data.repository.AppRepository
 
-class HomeViewModel : ViewModel() {
-
+class LoginViewModel(val repo: AppRepository) :ViewModel() {
     private val _text = MutableLiveData<String>().apply {
         value = "home"
     }

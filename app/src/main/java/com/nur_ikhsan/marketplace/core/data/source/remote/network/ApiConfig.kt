@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiConfig {
 
-    private const val BASE_URL = ""
+    private const val BASE_URL = "https://127.0.0.1:8000/api/"
 
     private val client: Retrofit
     get() {

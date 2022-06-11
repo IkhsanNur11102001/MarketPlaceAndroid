@@ -3,12 +3,16 @@ package com.nur_ikhsan.marketplace.ui.login
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.ViewModel
 import com.nur_ikhsan.marketplace.R
 import com.nur_ikhsan.marketplace.Util.Prefs
 import com.nur_ikhsan.marketplace.databinding.ActivityLoginBinding
 import com.nur_ikhsan.marketplace.databinding.FragmentDashboardBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
+
+    private val viewModel : LoginViewModel by viewModel()
 
     private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding!!
@@ -18,20 +22,37 @@ class LoginActivity : AppCompatActivity() {
         _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val s = Prefs(this)
-        if (s.getIsLogin()){
-            binding.tvStatus.text = "SUDAH LOGIN"
-        }else binding.tvStatus.text = "BELUM LOGIN"
 
-        binding.btnLogin.setOnClickListener {
-            s.setIsLogin(true)
-            onBackPressed()
-        }
-        binding.btnLogout.setOnClickListener {
-            s.setIsLogin(false)
-            onBackPressed()
-        }
-
-        Log.d("RESPON", "PESAN SINGKAT")
+        setData()
     }
-}
+
+    fun setData() {
+        viewModel.text.observe(this, {
+            binding.edtEmail.setText(it)
+        })
+        binding.btnMasuk.setOnClickListener {
+            viewModel.ubahData()
+        }
+
+    }
+
+        fun testing (){
+            val s = Prefs(this)
+            if (s.getIsLogin()){
+                binding.tvStatus.text = "SUDAH LOGIN"
+            }else binding.tvStatus.text = "BELUM LOGIN"
+
+            binding.btnLogin.setOnClickListener {
+                s.setIsLogin(true)
+                onBackPressed()
+            }
+            binding.btnLogout.setOnClickListener {
+                s.setIsLogin(false)
+                onBackPressed()
+            }
+
+            Log.d("RESPON", "PESAN SINGKAT")
+
+        }
+
+    }
