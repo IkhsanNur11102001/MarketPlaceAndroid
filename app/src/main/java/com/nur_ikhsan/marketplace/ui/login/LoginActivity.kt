@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.nur_ikhsan.marketplace.R
 import com.nur_ikhsan.marketplace.Util.Prefs
+import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.databinding.ActivityLoginBinding
 import com.nur_ikhsan.marketplace.databinding.FragmentDashboardBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,28 +32,15 @@ class LoginActivity : AppCompatActivity() {
             binding.edtEmail.setText(it)
         })
         binding.btnMasuk.setOnClickListener {
-            viewModel.ubahData()
+
+            val body = LoginRequest(
+                binding.edtEmail.text.toString(),
+                binding.edtPassword.text.toString())
+
+            viewModel.login(body).observe(this, {
+
+            })
         }
 
     }
-
-        fun testing (){
-            val s = Prefs(this)
-            if (s.getIsLogin()){
-                binding.tvStatus.text = "SUDAH LOGIN"
-            }else binding.tvStatus.text = "BELUM LOGIN"
-
-            binding.btnLogin.setOnClickListener {
-                s.setIsLogin(true)
-                onBackPressed()
-            }
-            binding.btnLogout.setOnClickListener {
-                s.setIsLogin(false)
-                onBackPressed()
-            }
-
-            Log.d("RESPON", "PESAN SINGKAT")
-
-        }
-
-    }
+}
