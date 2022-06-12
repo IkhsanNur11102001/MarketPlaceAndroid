@@ -1,28 +1,31 @@
 package com.nur_ikhsan.marketplace.core.data.repository
 
-import android.util.Log
+
 import com.inyongtisto.myhelper.extension.logs
 import com.nur_ikhsan.marketplace.core.data.source.local.LocalDataSource
 import com.nur_ikhsan.marketplace.core.data.source.remote.RemoteDataSource
+import com.nur_ikhsan.marketplace.core.data.source.remote.network.Resource
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import kotlinx.coroutines.flow.flow
 
 class AppRepository (val local : LocalDataSource, val remote: RemoteDataSource){
 
     fun login(data:LoginRequest) = flow {
+        emit(Resource.loading(null))
         try {
             remote.login(data).let {
                 if (it.isSuccessful){
                     val body = it.body()
+                    emit(Resource.succes(body?.data))
                     logs("succes:"+body.toString())
-                    emit(body)
                 } else{
+                    emit(Resource.error("Terjadi kesalahan", null))
                    logs("Error:"+"Keterangan error")
-
                 }
             }
         }   catch (e:Exception){
-            logs("login: Error yang di handle:"+ e.message)
+            emit(Resource.error(e.message?: "Koneksi buruk", null))
+            logs("Error: "+e.message)
         }
     }
 
