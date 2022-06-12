@@ -1,6 +1,7 @@
 package com.nur_ikhsan.marketplace.core.data.repository
 
 
+import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import com.nur_ikhsan.marketplace.core.data.source.local.LocalDataSource
 import com.nur_ikhsan.marketplace.core.data.source.remote.RemoteDataSource
@@ -19,7 +20,9 @@ class AppRepository (val local : LocalDataSource, val remote: RemoteDataSource){
                     emit(Resource.succes(body?.data))
                     logs("succes:"+body.toString())
                 } else{
-                    emit(Resource.error("Terjadi kesalahan", null))
+
+                    emit(Resource.error(it.getErrorBody(ErrorCustom::class.java)?.description
+                        ?:"Terjadi kesalahan", null))
                    logs("Error:"+"Keterangan error")
                 }
             }
@@ -28,5 +31,14 @@ class AppRepository (val local : LocalDataSource, val remote: RemoteDataSource){
             logs("Error: "+e.message)
         }
     }
+
+    class ErrorCustom(
+        val ok :Boolean,
+        val error_code :Int,
+        val description : String? = null
+    )
+
+
+
 
 }
