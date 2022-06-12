@@ -3,7 +3,6 @@ package com.nur_ikhsan.marketplace
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.nur_ikhsan.marketplace.Util.Prefs
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

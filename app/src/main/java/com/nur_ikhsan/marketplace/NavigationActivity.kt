@@ -7,7 +7,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.nur_ikhsan.marketplace.Util.Prefs
 import com.nur_ikhsan.marketplace.databinding.ActivityNavigationsBinding
@@ -38,8 +37,7 @@ class NavigationActivity : AppCompatActivity() {
         navView.setOnItemSelectedListener {
 
             if (it.itemId == R.id.navigation_notifications){
-                val s = Prefs(this)
-                if (s.getIsLogin()){
+                if (Prefs.isLogin){
                     Log.d("TAG", "Sudah Login")
                     navController.navigate(it.itemId)
                 }else{

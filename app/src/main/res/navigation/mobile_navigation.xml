@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.nur_ikhsan.marketplace.ui.notifications.NotificationsFragment"
+        android:name="com.nur_ikhsan.marketplace.ui.notifications.AkunFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_akun" />
 </navigation>

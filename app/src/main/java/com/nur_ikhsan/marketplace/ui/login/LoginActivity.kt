@@ -2,17 +2,11 @@ package com.nur_ikhsan.marketplace.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
-import androidx.lifecycle.ViewModel
 import com.inyongtisto.myhelper.extension.*
-import com.nur_ikhsan.marketplace.R
-import com.nur_ikhsan.marketplace.Util.Prefs
+import com.nur_ikhsan.marketplace.NavigationActivity
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.State
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.databinding.ActivityLoginBinding
-import com.nur_ikhsan.marketplace.databinding.FragmentDashboardBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -52,17 +46,18 @@ class LoginActivity : AppCompatActivity() {
 
             when (it.state){
                State.SUCCES ->{
-                   binding.progresbar.visibility = View.GONE
+                   dismisLoading()
                    showToast("selamat datang " + it.data?.name)
+                   pushActivity(NavigationActivity::class.java)
 
                }
                 State.ERROR ->{
-                    binding.progresbar.visibility = View.GONE
+                    dismisLoading()
                     toastError(it.message ?: "Error")
 
                 }
                 State.LOADING ->{
-                    binding.progresbar.visibility = View.VISIBLE
+                    showLoading()
 
                 }
             }

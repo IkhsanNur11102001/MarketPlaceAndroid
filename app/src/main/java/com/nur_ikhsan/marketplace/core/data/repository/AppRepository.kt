@@ -3,6 +3,7 @@ package com.nur_ikhsan.marketplace.core.data.repository
 
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
+import com.nur_ikhsan.marketplace.Util.Prefs
 import com.nur_ikhsan.marketplace.core.data.source.local.LocalDataSource
 import com.nur_ikhsan.marketplace.core.data.source.remote.RemoteDataSource
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.Resource
@@ -16,7 +17,11 @@ class AppRepository (val local : LocalDataSource, val remote: RemoteDataSource){
         try {
             remote.login(data).let {
                 if (it.isSuccessful){
+                    Prefs.isLogin = true
                     val body = it.body()
+                    val user = body?.data
+                    Prefs.setUser(user)
+                    emit(Resource.succes(user))
                     emit(Resource.succes(body?.data))
                     logs("succes:"+body.toString())
                 } else{
