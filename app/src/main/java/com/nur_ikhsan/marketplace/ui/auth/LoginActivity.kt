@@ -57,11 +57,16 @@ class LoginActivity : AppCompatActivity() {
         viewModel.login(body).observe(this, {
             when (it.state){
                State.SUCCES ->{
+                  //dismisLoading()
                    showToast("selamat datang " + it.data?.name)
                    pushActivity(NavigationActivity::class.java)
                }
                 State.ERROR ->{
+                   //dismisLoading()
                     toastError(it.message ?: "Error")
+                }
+                State.LOADING->{
+                    //showLoading()
                 }
             }
         })

@@ -47,12 +47,17 @@ class RegisterActivity : AppCompatActivity() {
 
             when (it.state){
                State.SUCCES ->{
-                   showToast("Registrasi berhasil, silahkan login")
+                 //  dismisLoading()
+                   showToast("Registrasi berhasil")
                    pushActivity(LoginActivity::class.java)
 
                }
                 State.ERROR ->{
+                   //dismisLoading()
                     toastError(it.message ?: "Error")
+                }
+                State.LOADING->{
+                  //showLoading()
                 }
             }
         })

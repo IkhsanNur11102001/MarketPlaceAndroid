@@ -1,4 +1,4 @@
-package com.nur_ikhsan.marketplace.ui.notifications
+package com.nur_ikhsan.marketplace.ui.akun
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

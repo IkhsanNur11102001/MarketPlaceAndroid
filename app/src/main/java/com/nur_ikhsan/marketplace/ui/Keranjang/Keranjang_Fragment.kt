@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.nur_ikhsan.marketplace.databinding.FragmentAkunBinding
 import com.nur_ikhsan.marketplace.databinding.FragmentKeranjangBinding
-import com.nur_ikhsan.marketplace.ui.notifications.NotificationsViewModel
 
 
 class Keranjang_Fragment : Fragment() {

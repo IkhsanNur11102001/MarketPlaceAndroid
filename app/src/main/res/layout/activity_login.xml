@@ -116,6 +116,7 @@
                 android:text="Belum punya akun ? " />
 
             <TextView
+                style="@style/layout_clickable"
                 android:id="@+id/btn_reg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
