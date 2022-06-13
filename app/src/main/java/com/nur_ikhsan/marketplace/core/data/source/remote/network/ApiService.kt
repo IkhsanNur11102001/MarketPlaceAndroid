@@ -4,6 +4,7 @@ import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.RegisterRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.UpdateProfileRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.response.LoginResponse
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -26,6 +27,13 @@ interface ApiService {
     suspend fun update(
         @Path("id") int: Int,
         @Body user:UpdateProfileRequest
+    ): Response<LoginResponse>
+
+    @Multipart
+    @POST("upload-user/{id}")
+    suspend fun uploadUser(
+        @Path("id") int: Int? = null,
+        @Part user:MultipartBody.Part? = null
     ): Response<LoginResponse>
 
 
