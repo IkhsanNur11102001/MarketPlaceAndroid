@@ -1,17 +1,16 @@
 package com.nur_ikhsan.marketplace.ui.auth
 
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.inyongtisto.myhelper.extension.*
-import com.nur_ikhsan.marketplace.MainActivity
 import com.nur_ikhsan.marketplace.NavigationActivity
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.State
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.databinding.ActivityLoginBinding
+import com.nur_ikhsan.marketplace.ui.base.MyActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : MyActivity() {
 
     private val viewModel : AuthViewModel by viewModel()
 
@@ -54,19 +53,19 @@ class LoginActivity : AppCompatActivity() {
             binding.edtEmail.text.toString(),
             binding.edtPassword.text.toString())
 
-        viewModel.login(body).observe(this, {
+        viewModel.login(body).observe(this,{
             when (it.state){
                State.SUCCES ->{
-                  //dismisLoading()
+                  progress.dismiss()
                    showToast("selamat datang " + it.data?.name)
                    pushActivity(NavigationActivity::class.java)
                }
                 State.ERROR ->{
-                   //dismisLoading()
+                   progress.dismiss()
                     toastError(it.message ?: "Error")
                 }
                 State.LOADING->{
-                    //showLoading()
+                    progress.show()
                 }
             }
         })

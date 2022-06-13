@@ -9,9 +9,10 @@ import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.RegisterRequest
 import com.nur_ikhsan.marketplace.databinding.ActivityLoginBinding
 import com.nur_ikhsan.marketplace.databinding.ActivityRegisterBinding
+import com.nur_ikhsan.marketplace.ui.base.MyActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : MyActivity() {
     private val viewModel : AuthViewModel by viewModel()
     private var _binding: ActivityRegisterBinding? = null
     private val binding get() = _binding!!
@@ -47,17 +48,17 @@ class RegisterActivity : AppCompatActivity() {
 
             when (it.state){
                State.SUCCES ->{
-                 //  dismisLoading()
-                   showToast("Registrasi berhasil")
+                 progress.dismiss()
+                   showToast("Registrasi berhasil, selamata datang " +it.data?.name)
                    pushActivity(LoginActivity::class.java)
 
                }
                 State.ERROR ->{
-                   //dismisLoading()
+                   progress.dismiss()
                     toastError(it.message ?: "Error")
                 }
                 State.LOADING->{
-                  //showLoading()
+                  progress.show()
                 }
             }
         })

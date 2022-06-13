@@ -2,12 +2,11 @@ package com.nur_ikhsan.marketplace.core.data.source.remote.network
 
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.RegisterRequest
+import com.nur_ikhsan.marketplace.core.data.source.remote.request.UpdateProfileRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.response.LoginResponse
 import okhttp3.RequestBody
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -21,6 +20,12 @@ interface ApiService {
     @POST("register")
     suspend fun register(
         @Body user:RegisterRequest
+    ): Response<LoginResponse>
+
+    @PUT("update-user/{id}")
+    suspend fun update(
+        @Path("id") int: Int,
+        @Body user:UpdateProfileRequest
     ): Response<LoginResponse>
 
 
