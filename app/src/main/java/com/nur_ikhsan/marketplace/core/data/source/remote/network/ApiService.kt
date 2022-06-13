@@ -1,6 +1,7 @@
 package com.nur_ikhsan.marketplace.core.data.source.remote.network
 
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
+import com.nur_ikhsan.marketplace.core.data.source.remote.request.RegisterRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.response.LoginResponse
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -19,8 +20,8 @@ interface ApiService {
     //"https://127.0.0.1:8000/api/register"
     @POST("register")
     suspend fun register(
-        //@Body user:user
-    ): Response<RequestBody>
+        @Body user:RegisterRequest
+    ): Response<LoginResponse>
 
 
 

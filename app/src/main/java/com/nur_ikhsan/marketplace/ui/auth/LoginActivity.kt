@@ -1,8 +1,10 @@
-package com.nur_ikhsan.marketplace.ui.login
+package com.nur_ikhsan.marketplace.ui.auth
+
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.inyongtisto.myhelper.extension.*
+import com.nur_ikhsan.marketplace.MainActivity
 import com.nur_ikhsan.marketplace.NavigationActivity
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.State
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
@@ -11,7 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
 
-    private val viewModel : LoginViewModel by viewModel()
+    private val viewModel : AuthViewModel by viewModel()
 
     private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding!!
@@ -21,17 +23,27 @@ class LoginActivity : AppCompatActivity() {
         _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        setData()
+        mainButton()
+        buttonReg()
     }
 
-    fun setData() {
+
+    private fun mainButton(){
         binding.btnMasuk.setOnClickListener {
             login()
-
         }
 
     }
+
+
+    private fun buttonReg(){
+        binding.btnReg.setOnClickListener {
+            intentActivity(RegisterActivity::class.java)
+        }
+
+    }
+
+
 
     private fun login(){
 
@@ -43,22 +55,13 @@ class LoginActivity : AppCompatActivity() {
             binding.edtPassword.text.toString())
 
         viewModel.login(body).observe(this, {
-
             when (it.state){
                State.SUCCES ->{
-                   dismisLoading()
                    showToast("selamat datang " + it.data?.name)
                    pushActivity(NavigationActivity::class.java)
-
                }
                 State.ERROR ->{
-                    dismisLoading()
                     toastError(it.message ?: "Error")
-
-                }
-                State.LOADING ->{
-                    showLoading()
-
                 }
             }
         })

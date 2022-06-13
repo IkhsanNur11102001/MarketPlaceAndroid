@@ -10,7 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.nur_ikhsan.marketplace.Util.Prefs
 import com.nur_ikhsan.marketplace.databinding.ActivityNavigationsBinding
-import com.nur_ikhsan.marketplace.ui.login.LoginActivity
+import com.nur_ikhsan.marketplace.ui.auth.LoginActivity
 
 class NavigationActivity : AppCompatActivity() {
 
