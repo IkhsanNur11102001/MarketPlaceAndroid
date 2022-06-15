@@ -1,16 +1,16 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.MarketPlace" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#09af00</item>
-        <item name="colorPrimaryVariant">#008e00</item>
+        <item name="colorPrimary">#47bb3d</item>
+        <item name="colorPrimaryVariant">#47bb3d</item>
         <item name="colorOnPrimary">#ffff</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">#09af00</item>
+        <item name="colorSecondaryVariant">#89E386</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

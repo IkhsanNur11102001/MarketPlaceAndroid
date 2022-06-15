@@ -10,4 +10,7 @@
     <string name="name">Name</string>
     <string name="email">email</string>
     <string name="phone">phone</string>
+    <string name="projectsaya">Project Saya</string>
+    <string name="projectSaya">Project Saya</string>
+    <string name="cari_produk_disini">cari produk disini</string>
 </resources>

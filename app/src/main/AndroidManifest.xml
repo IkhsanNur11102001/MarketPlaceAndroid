@@ -12,14 +12,14 @@
         android:networkSecurityConfig="@xml/network_scurity"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/tokped"
-        android:label="@string/app_name"
+        android:label="@string/projectsaya"
         android:roundIcon="@mipmap/tokped"
         android:supportsRtl="true"
         android:theme="@style/Theme.MarketPlace">
         <activity
             android:name=".NavigationActivity"
             android:exported="true"
-            android:label="@string/app_name" >
+            android:label="@string/projectsaya" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
