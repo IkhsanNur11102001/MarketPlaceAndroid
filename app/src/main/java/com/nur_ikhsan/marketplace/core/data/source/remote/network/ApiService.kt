@@ -1,9 +1,11 @@
 package com.nur_ikhsan.marketplace.core.data.source.remote.network
 
+import com.nur_ikhsan.marketplace.core.data.source.model.AlamatToko
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.CreatTokoRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.RegisterRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.UpdateProfileRequest
+import com.nur_ikhsan.marketplace.core.data.source.remote.response.BaseListResponse
 import com.nur_ikhsan.marketplace.core.data.source.remote.response.BaseSingelResponse
 import com.nur_ikhsan.marketplace.core.data.source.remote.response.LoginResponse
 import com.nur_ikhsan.marketplace.core.data.source.remote.response.TokoResponse
@@ -48,5 +50,10 @@ interface ApiService {
     suspend fun getUser(
         @Path("id") int: Int? = null,
     ): Response<LoginResponse>
+
+    @GET("alamat-toko/{id}")
+    suspend fun getAlamatToko(
+        @Path("id") idToko: Int? = null,
+    ): Response<BaseListResponse<AlamatToko>>
 
 }

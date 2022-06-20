@@ -10,6 +10,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:background="#9ad691"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -20,12 +21,12 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/tv_kota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="Surabaya"
-                android:textAppearance="@style/TypographyStyles.Text2" />
+                android:text="@string/surabaya" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btn_menu"
@@ -46,7 +47,7 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:text="Jl, kenangan denagn mantan, Kec, Kembangan, kota jakarta Barat, Jakarta"
             android:textAppearance="@style/TypographyStyles.Text3"
-            android:textColor="@color/grey6" />
+            android:textColor="@color/black" />
 
         <View
             android:layout_width="match_parent"

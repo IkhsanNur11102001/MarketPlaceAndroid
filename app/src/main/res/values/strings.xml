@@ -16,4 +16,7 @@
     <string name="buka_toko_gratis">Buka toko gratis</string>
     <string name="mau_mualai_berbisnis">Mau mualai berbisnis?</string>
     <string name="alamat">Alamat</string>
+    <string name="pilih_alamat">Pilih alamat</string>
+    <string name="tidak_ada_data">Tidak ada data</string>
+    <string name="surabaya">Surabaya</string>
 </resources>

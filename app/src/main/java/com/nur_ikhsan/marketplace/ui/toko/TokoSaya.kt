@@ -2,21 +2,12 @@ package com.nur_ikhsan.marketplace.ui.toko
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.inyongtisto.myhelper.extension.*
-import com.inyongtisto.myhelper.util.Constants
 import com.nur_ikhsan.marketplace.Util.Constant.USER_URL
 import com.nur_ikhsan.marketplace.Util.Prefs
-import com.nur_ikhsan.marketplace.core.data.source.model.User
 import com.nur_ikhsan.marketplace.databinding.ActivityTokoSayaBinding
-import com.nur_ikhsan.marketplace.databinding.FragmentAkunBinding
-import com.nur_ikhsan.marketplace.ui.auth.LoginActivity
-import com.nur_ikhsan.marketplace.ui.updateProfile.UpdateProfile
+import com.nur_ikhsan.marketplace.ui.alamat.ListAlamatTokoActivity
 import com.squareup.picasso.Picasso
 
 class TokoSaya : AppCompatActivity() {
@@ -32,6 +23,7 @@ class TokoSaya : AppCompatActivity() {
 
         //get data dari server
         setData()
+        setUpLinstener()
 
     }
     private fun setData() {
@@ -47,6 +39,13 @@ class TokoSaya : AppCompatActivity() {
         }
 
 
+    }
+    private fun setUpLinstener(){
+        binding.apply {
+            btnAlamat.setOnClickListener {
+                intentActivity(ListAlamatTokoActivity::class.java)
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
