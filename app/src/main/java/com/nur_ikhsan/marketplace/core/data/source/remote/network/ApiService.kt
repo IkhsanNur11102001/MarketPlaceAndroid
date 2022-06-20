@@ -1,9 +1,12 @@
 package com.nur_ikhsan.marketplace.core.data.source.remote.network
 
+import com.nur_ikhsan.marketplace.core.data.source.remote.request.CreatTokoRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.RegisterRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.UpdateProfileRequest
+import com.nur_ikhsan.marketplace.core.data.source.remote.response.BaseSingelResponse
 import com.nur_ikhsan.marketplace.core.data.source.remote.response.LoginResponse
+import com.nur_ikhsan.marketplace.core.data.source.remote.response.TokoResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -36,6 +39,14 @@ interface ApiService {
         @Part user:MultipartBody.Part? = null
     ): Response<LoginResponse>
 
+    @POST("toko")
+    suspend fun creatToko(
+        @Body data:CreatTokoRequest
+    ): Response<BaseSingelResponse<TokoResponse>>
 
+    @GET("toko-user/{id}")
+    suspend fun getUser(
+        @Path("id") int: Int? = null,
+    ): Response<LoginResponse>
 
 }

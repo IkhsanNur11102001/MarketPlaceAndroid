@@ -10,10 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.inyongtisto.myhelper.extension.getInitial
 import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.pushActivity
+import com.inyongtisto.myhelper.extension.toGone
 import com.nur_ikhsan.marketplace.Util.Constant.USER_URL
 import com.nur_ikhsan.marketplace.Util.Prefs
 import com.nur_ikhsan.marketplace.databinding.FragmentAkunBinding
 import com.nur_ikhsan.marketplace.ui.auth.LoginActivity
+import com.nur_ikhsan.marketplace.ui.toko.BukaTokoActivity
+import com.nur_ikhsan.marketplace.ui.toko.TokoSaya
 import com.nur_ikhsan.marketplace.ui.updateProfile.UpdateProfile
 import com.squareup.picasso.Picasso
 
@@ -52,6 +55,10 @@ class AkunFragment : Fragment() {
      binding.btnUpdate.setOnClickListener {
          intentActivity(UpdateProfile::class.java)
      }
+
+     binding.btnToko.setOnClickListener {
+         intentActivity(BukaTokoActivity::class.java)
+     }
     }
     private fun setUser(){
         val user = Prefs.getUser()
@@ -62,6 +69,18 @@ class AkunFragment : Fragment() {
                 tvEmail.text = user.email
                 tvInisial.text = user.name.getInitial()
                 Picasso.get().load(USER_URL+user.image).into(binding.imgProfile)
+
+                if (user.toko != null) {
+                    tvStatusToko.toGone()
+                    tvNameToko.text = user.toko?.name
+                    binding.btnToko.setOnClickListener {
+                        intentActivity(TokoSaya::class.java)
+                    }
+                } else {
+                    binding.btnToko.setOnClickListener {
+                        intentActivity(BukaTokoActivity::class.java)
+                    }
+                }
             }
         }
     }

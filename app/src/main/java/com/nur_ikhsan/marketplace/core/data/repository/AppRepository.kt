@@ -7,6 +7,7 @@ import com.nur_ikhsan.marketplace.Util.Prefs
 import com.nur_ikhsan.marketplace.core.data.source.local.LocalDataSource
 import com.nur_ikhsan.marketplace.core.data.source.remote.RemoteDataSource
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.Resource
+import com.nur_ikhsan.marketplace.core.data.source.remote.request.CreatTokoRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.RegisterRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.UpdateProfileRequest
@@ -115,6 +116,45 @@ class AppRepository (val local : LocalDataSource, val remote: RemoteDataSource){
             emit(Resource.error(e.message?: "Koneksi buruk", null))
         }
     }
+
+
+    //---------------------buat toko----------------------//
+    fun createToko(data: CreatTokoRequest) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.creatToko(data).let {
+                if (it.isSuccessful) {
+                    val body = it.body()?.data
+                    emit(Resource.succes(body))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: " error", null))
+                }
+            }
+        } catch (e: java.lang.Exception) {
+            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
+
+    //------------------toko saya--------------------//
+    fun getUser(id: Int? = null) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.getUser(id).let {
+                if (it.isSuccessful) {
+                    val body = it.body()
+                    val user = body?.data
+                    Prefs.setUser(user)
+                    emit(Resource.succes(user))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                }
+            }
+        } catch (e: java.lang.Exception) {
+            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
+
+
 
     class ErrorCustom(
         val ok :Boolean,

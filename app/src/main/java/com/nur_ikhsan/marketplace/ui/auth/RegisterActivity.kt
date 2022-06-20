@@ -1,13 +1,9 @@
 package com.nur_ikhsan.marketplace.ui.auth
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.inyongtisto.myhelper.extension.*
-import com.nur_ikhsan.marketplace.NavigationActivity
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.State
-import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.RegisterRequest
-import com.nur_ikhsan.marketplace.databinding.ActivityLoginBinding
 import com.nur_ikhsan.marketplace.databinding.ActivityRegisterBinding
 import com.nur_ikhsan.marketplace.ui.base.MyActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel

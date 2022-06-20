@@ -3,7 +3,7 @@ package com.nur_ikhsan.marketplace.ui.auth
 
 import android.os.Bundle
 import com.inyongtisto.myhelper.extension.*
-import com.nur_ikhsan.marketplace.NavigationActivity
+import com.nur_ikhsan.marketplace.ui.Navigation.NavigationActivity
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.State
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
 import com.nur_ikhsan.marketplace.databinding.ActivityLoginBinding

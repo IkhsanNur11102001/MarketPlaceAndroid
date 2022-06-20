@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarketPlace">
         <activity
-            android:name=".NavigationActivity"
+            android:name=".ui.Navigation.NavigationActivity"
             android:exported="true"
             android:label="@string/projectsaya" >
 
@@ -36,6 +36,9 @@
         <activity android:name=".ui.auth.LoginActivity" />
         <activity android:name=".ui.auth.RegisterActivity" />
         <activity android:name=".ui.updateProfile.UpdateProfile" />
+        <activity android:name=".ui.toko.BukaTokoActivity" />
+        <activity android:name=".ui.toko.TokoSaya" />
+
     </application>
 
 </manifest>

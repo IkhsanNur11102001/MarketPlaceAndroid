@@ -4,9 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1455" />
+        <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/akun.xml" value="0.1455" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_asset_gold.xml" value="0.1455" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_asset_home.xml" value="0.1455" />
+        <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.1455" />
+        <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1455" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.1455" />
+        <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1455" />
+        <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1455" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_notification.xml" value="0.1455" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1455" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/drawable/ic_placeholder.xml" value="0.1455" />
@@ -15,6 +20,8 @@
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/activity_main.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/activity_navigations.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/activity_register.xml" value="0.2109375" />
+        <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/activity_toko_saya.xml" value="0.2109375" />
+        <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/buka_toko.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/fragment_akun.xml" value="0.2796875" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/fragment_home.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/fragment_keranjang.xml" value="0.2109375" />
@@ -24,6 +31,7 @@
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/item_home_slider.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/layout_home.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/layout_home_member.xml" value="0.2109375" />
+        <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/layout_toolbar.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/layout/update_profile.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2109375" />
         <entry key="..\:/PROJECT ANDROID STUDIO/MarketPlace/app/src/main/res/xml/network_scurity.xml" value="0.2109375" />

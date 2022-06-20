@@ -143,7 +143,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
                 app:spanCount="2"
-                tools:itemCount="6"
+                tools:itemCount="3"
                 tools:listitem="@layout/item_home_produk_terbaru" />
 
         </LinearLayout>
