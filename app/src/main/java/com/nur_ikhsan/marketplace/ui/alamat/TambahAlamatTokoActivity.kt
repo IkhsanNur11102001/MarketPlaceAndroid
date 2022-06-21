@@ -37,7 +37,7 @@ class TambahAlamatTokoActivity : MyActivity() {
         // 0, 1, 2, 3
         val listProvinsi = listOf("Pilih Provinsi", "Jawa Timur", "Jawa Tengah", "Jawa Barat")
         val listKota = listOf("Pilih Kota", "Kuningan", "Cirebon", "Bogor")
-        val listKecamatan = listOf("Pilih Kecamatan", "Kramatmulya", "Nganjuk", "Jonggol")
+        val listKecamatan = listOf("Pilih Kecamatan", "Kramatmulya", "Kesambi", "Kejaksan, Gunung Jati")
 
         binding.spnProvinsi.setOnPositionSelectedListener(this, listProvinsi) {
             if (it == 0) {
@@ -78,15 +78,6 @@ class TambahAlamatTokoActivity : MyActivity() {
                 simpan()
 
             }
-            lyToolbar.btnSimpan.setOnLongClickListener {
-                edtLabel.setText("Rumah")
-                edtAlamat.setText("Jl. Kenangan bersama mantan")
-                edtKodePos.setText("98347")
-                edtEmail.setText("email@gmail.com")
-                edtPhone.setText("0812345678")
-                return@setOnLongClickListener true
-            }
-
             lyToolbar.btnSimpan.setOnLongClickListener {
                 edtLabel.setText("Rumah Ikhsan")
                 edtAlamat.setText("Desa Cibentang")

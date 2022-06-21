@@ -80,5 +80,8 @@ dependencies {
     //display image
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    //splash screen
+    implementation "com.airbnb.android:lottie:3.5.0"
+
 
 }
