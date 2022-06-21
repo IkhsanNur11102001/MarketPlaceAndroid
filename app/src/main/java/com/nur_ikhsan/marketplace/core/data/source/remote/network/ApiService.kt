@@ -56,4 +56,9 @@ interface ApiService {
         @Path("id") idToko: Int? = null,
     ): Response<BaseListResponse<AlamatToko>>
 
+    @POST("alamat-toko")
+    suspend fun creatAlamatToko(
+        @Body data:AlamatToko
+    ): Response<BaseSingelResponse<AlamatToko>>
+
 }

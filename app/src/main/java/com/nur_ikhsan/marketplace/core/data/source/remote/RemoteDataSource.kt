@@ -1,6 +1,7 @@
 package com.nur_ikhsan.marketplace.core.data.source.remote
 
 import com.nur_ikhsan.marketplace.Util.getTokoId
+import com.nur_ikhsan.marketplace.core.data.source.model.AlamatToko
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.ApiService
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.CreatTokoRequest
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.LoginRequest
@@ -23,6 +24,8 @@ class RemoteDataSource(private val api: ApiService) {
     suspend fun getUser(id: Int? = null) = api.getUser(id)
 
     suspend fun getAlamatToko() = api.getAlamatToko(getTokoId())
+
+    suspend fun creatAlamatToko(data: AlamatToko) = api.creatAlamatToko(data)
 
 
 }

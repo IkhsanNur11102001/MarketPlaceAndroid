@@ -21,15 +21,25 @@ class ListAlamatTokoActivity : MyActivity() {
 
         getData()
         setupAdapter()
-        mainButton()
+        setUpUi()
     }
 
-    private fun mainButton() {
-
+    private fun setUpUi() {
+        binding.apply {
+            lyToolbar.btnTambah.toVisible()
+            lyToolbar.btnTambah.setOnClickListener {
+                intentActivity(TambahAlamatTokoActivity::class.java)
+            }
+        }
     }
 
     private fun setupAdapter() {
         binding.rvData.adapter = adapter
+    }
+
+    override fun onResume() {
+        getData()
+        super.onResume()
     }
 
     private fun getData() {

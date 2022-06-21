@@ -5,6 +5,7 @@ import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import com.nur_ikhsan.marketplace.Util.Prefs
 import com.nur_ikhsan.marketplace.core.data.source.local.LocalDataSource
+import com.nur_ikhsan.marketplace.core.data.source.model.AlamatToko
 import com.nur_ikhsan.marketplace.core.data.source.remote.RemoteDataSource
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.Resource
 import com.nur_ikhsan.marketplace.core.data.source.remote.request.CreatTokoRequest
@@ -174,6 +175,23 @@ class AppRepository (val local : LocalDataSource, val remote: RemoteDataSource){
         }
     }
 
+
+    //--------------------------creat Alamat toko----------------------------//
+    fun createAlamatToko(data: AlamatToko) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.creatAlamatToko(data).let {
+                if (it.isSuccessful) {
+                    val body = it.body()?.data
+                    emit(Resource.succes(body))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                }
+            }
+        } catch (e: java.lang.Exception) {
+            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
 
 
     class ErrorCustom(

@@ -40,6 +40,7 @@
         <activity android:name=".ui.toko.TokoSaya" />
         <activity android:name=".ui.BaruActivity" />
         <activity android:name=".ui.alamat.ListAlamatTokoActivity" />
+        <activity android:name=".ui.alamat.TambahAlamatTokoActivity" />
 
     </application>
 
