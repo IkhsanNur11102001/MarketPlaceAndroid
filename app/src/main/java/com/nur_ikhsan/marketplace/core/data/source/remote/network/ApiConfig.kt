@@ -15,27 +15,27 @@ object ApiConfig {
     private const val BASE_URL = Constant.BASE_URL + "api/"
 
     private val client: Retrofit
-    get() {
-        val gson = GsonBuilder()
-            .setLenient()
-            .create()
+        get() {
+            val gson = GsonBuilder()
+                .setLenient()
+                .create()
 
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
-        val client: OkHttpClient = OkHttpClient.Builder()
-            .addInterceptor(interceptor)
-            .connectTimeout(60, TimeUnit.SECONDS)
-            .readTimeout(60,TimeUnit.SECONDS)
-            .writeTimeout(60, TimeUnit.SECONDS)
-            .build()
+            val interceptor = HttpLoggingInterceptor()
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
+            val client: OkHttpClient = OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build()
 
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(client)
-            .build()
-    }
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(client)
+                .build()
+        }
 
     val provideApiService: ApiService
-    get() = client.create(ApiService::class.java)
+        get() = client.create(ApiService::class.java)
 }

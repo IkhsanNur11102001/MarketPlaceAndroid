@@ -16,9 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarketPlace"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".splash_screen"
-            android:exported="true" >
+
+        <activity android:name=".splash_screen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,15 +26,20 @@
             </intent-filter>
         </activity>
 
+
         <activity
             android:name=".ui.Navigation.NavigationActivity"
-            android:exported="false"
-            android:label="@string/projectsaya">
-
+            android:exported="true"
+            android:label="@string/NavigationActivity">
         </activity>
+
+
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+        </activity>
+
+
         <activity android:name=".ui.auth.LoginActivity" />
         <activity android:name=".ui.auth.RegisterActivity" />
         <activity android:name=".ui.updateProfile.UpdateProfile" />

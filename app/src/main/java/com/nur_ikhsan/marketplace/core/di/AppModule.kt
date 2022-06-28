@@ -7,6 +7,7 @@ import org.koin.dsl.module
 
 val appModule = module {
     single { ApiConfig.provideApiService }
+
     single { RemoteDataSource(get()) }
 
     single { LocalDataSource() }

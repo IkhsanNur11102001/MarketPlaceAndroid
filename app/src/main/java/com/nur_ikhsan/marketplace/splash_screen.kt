@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.nur_ikhsan.marketplace.ui.Navigation.NavigationActivity
-import com.nur_ikhsan.marketplace.ui.auth.LoginActivity
 
 @Suppress("DEPRECATION")
 class splash_screen : AppCompatActivity() {
