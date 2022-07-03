@@ -194,6 +194,24 @@ class AppRepository (val local : LocalDataSource, val remote: RemoteDataSource){
     }
 
 
+    //-----------------------update alamat------------------------//
+    fun updateAlamatToko(data: AlamatToko) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.updateAlamatToko(data).let {
+                if (it.isSuccessful) {
+                    val body = it.body()?.data
+                    emit(Resource.succes(body))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                }
+            }
+        } catch (e: java.lang.Exception) {
+            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
+
+
     class ErrorCustom(
         val ok :Boolean,
         val error_code :Int,

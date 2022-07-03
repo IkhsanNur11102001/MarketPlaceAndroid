@@ -1,11 +1,17 @@
 package com.nur_ikhsan.marketplace.ui.alamatToko.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.inyongtisto.myhelper.extension.intentActivity
+import com.inyongtisto.myhelper.extension.logs
+import com.inyongtisto.myhelper.extension.popUpMenu
+import com.inyongtisto.myhelper.extension.toJson
 import com.nur_ikhsan.marketplace.core.data.source.model.AlamatToko
 import com.nur_ikhsan.marketplace.databinding.ItemAlamatTokoBinding
+import com.nur_ikhsan.marketplace.ui.alamat.EditAlamatToko
 
 @SuppressLint("NotifyDataSetChanged")
 class AlamatTokoAdapter : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>() {
@@ -18,13 +24,29 @@ class AlamatTokoAdapter : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>() {
         fun bind(item: AlamatToko, position: Int) {
             itemBinding.apply {
 
-                tvKota.text = "Nama Kota : "+item.kota
+                tvKota.text = item.kota
                 var  kecamatan = ""
                 if (item.kecamatan != null) kecamatan = "${item.kecamatan}"
 
-                tvAlamat.text = "Alamat lengkap : ${item.alamat}, Kec. $kecamatan, KodePos. ${item.kodepost}"
+                tvAlamat.text = "${item.alamat}, Kec. $kecamatan, Kodepos. ${item.kodepost}, ${item.kota}, Prov. ${item.provinsi}"
                 tvEmail.text = item.email
                 tvPhone.text = item.phone
+
+                val context = root.context
+                btnMenu.setOnClickListener {
+                    val listmenu = listOf("Edit alamat", "Hapus alamat")
+                    context.popUpMenu(btnMenu, listmenu){
+                        when(it){
+                            "Edit alamat"-> context.intentActivity(EditAlamatToko::class.java, item.toJson())
+                            "Hapus alamat"-> logs("Hapus alamat")
+                        }
+                    }
+
+//                    val i = Intent(context, EditAlamatToko::class.java)
+//                    i.putExtra("alamat", item.toJson())
+//                    context.startActivity(i)
+
+                }
             }
         }
     }

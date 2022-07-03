@@ -27,5 +27,7 @@ class RemoteDataSource(private val api: ApiService) {
 
     suspend fun creatAlamatToko(data: AlamatToko) = api.creatAlamatToko(data)
 
+    suspend fun updateAlamatToko(data: AlamatToko) = api.updateAlamat(data.id, data)
+
 
 }

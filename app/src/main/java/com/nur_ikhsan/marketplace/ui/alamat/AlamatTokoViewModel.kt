@@ -1,6 +1,5 @@
 package com.nur_ikhsan.marketplace.ui.alamat
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 
@@ -12,5 +11,6 @@ class AlamatTokoViewModel(private val repo: AppRepository) :ViewModel() {
 
 fun get() = repo.getAlamatToko().asLiveData()
 fun create(data: AlamatToko) = repo.createAlamatToko(data).asLiveData()
+    fun update(data: AlamatToko) = repo.updateAlamatToko(data).asLiveData()
 
 }

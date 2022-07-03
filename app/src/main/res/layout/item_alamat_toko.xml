@@ -10,7 +10,6 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:background="#9ad691"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -21,12 +20,12 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:textColor="@color/black"
                 android:id="@+id/tv_kota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="@string/surabaya" />
+                android:text="@string/surabaya"
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btn_menu"
@@ -39,21 +38,25 @@
 
         </RelativeLayout>
 
+        <View
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/grey3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"/>
+
         <TextView
             android:id="@+id/tv_alamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/_8sdp"
-            android:text="Jl, kenangan denagn mantan, Kec, Kembangan, kota jakarta Barat, Jakarta"
-            android:textAppearance="@style/TypographyStyles.Text3"
-            android:textColor="@color/black" />
+            android:text="Jl, kenangan denagn mantan, Kec, Kembangan, kota jakarta Barat, Jakarta" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="@dimen/_10sdp"
-            android:background="@color/grey2" />
+            android:background="@color/grey3" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_phone"
@@ -64,7 +67,7 @@
             android:gravity="center_vertical"
             android:text="0812345678"
             android:textAppearance="@style/TypographyStyles.Text3"
-            android:textColor="@color/grey6"
+            android:textColor="@color/colorPrimary"
             app:drawableTint="@color/grey6" />
 
         <View
@@ -82,7 +85,7 @@
             android:gravity="center_vertical"
             android:text="email@gmail.com"
             android:textAppearance="@style/TypographyStyles.Text3"
-            android:textColor="@color/grey6"
+            android:textColor="@color/colorPrimary"
             app:drawableTint="@color/grey6" />
 
     </LinearLayout>

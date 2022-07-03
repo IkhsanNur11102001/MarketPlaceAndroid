@@ -1,18 +1,17 @@
 package com.nur_ikhsan.marketplace.ui.alamat
 
+
 import android.os.Bundle
 import com.nur_ikhsan.marketplace.ui.base.MyActivity
-import com.nur_ikhsan.marketplace.ui.toko.TokoViewModel
 import com.inyongtisto.myhelper.extension.*
 import com.nur_ikhsan.marketplace.Util.defaultError
 import com.nur_ikhsan.marketplace.Util.getTokoId
 import com.nur_ikhsan.marketplace.core.data.source.model.AlamatToko
 import com.nur_ikhsan.marketplace.core.data.source.remote.network.State
-import com.nur_ikhsan.marketplace.databinding.ActivityBukatokoBinding
 import com.nur_ikhsan.marketplace.databinding.ActivityTambahAlamatTokoBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TambahAlamatTokoActivity : MyActivity() {
+class EditAlamatToko : MyActivity() {
     private lateinit var binding: ActivityTambahAlamatTokoBinding
     private val viewModel: AlamatTokoViewModel by viewModel()
     private var provinsiId: Int? = null
@@ -22,15 +21,33 @@ class TambahAlamatTokoActivity : MyActivity() {
     private var kota: String? = null
     private var kecamatan: String? = null
 
+    private var alamat = AlamatToko()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTambahAlamatTokoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setToolbar(binding.lyToolbar.toolbar, "Tambah alamat")
+        setToolbar(binding.lyToolbar.toolbar, "Ubah alamat toko")
 
+        getExtra()
         setupUI()
         mainButton()
+
+
+    }
+
+    private fun getExtra(){
+        val extra:String? = getStringExtra()
+        alamat = extra.toModel(AlamatToko::class.java) ?: AlamatToko()
+
+        binding.apply {
+//            edtLabel.setText(alamat.label ?:"Rumah")
+            edtAlamat.setText(alamat.alamat)
+            edtKodePos.setText(alamat.kodepost)
+            edtEmail.setText(alamat.email)
+            edtPhone.setText(alamat.phone)
+        }
     }
 
     private fun setupUI() {
@@ -68,14 +85,25 @@ class TambahAlamatTokoActivity : MyActivity() {
                 kecamatan = listKecamatan[it]
             }
         }
+
+        binding.apply {
+            val indexProv = listProvinsi.indexOfFirst {it==alamat.provinsi }
+            spnProvinsi.setSelection(indexProv)
+
+            val indexKota = listKota.indexOfFirst {it==alamat.kota }
+            spnKota.setSelection(indexKota)
+
+            val indexKec = listKecamatan.indexOfFirst {it==alamat.kecamatan }
+            spnKecamatan.setSelection(indexKec)
+        }
     }
 
     private fun mainButton() {
         binding.apply {
             lyToolbar.btnSimpan.toVisible()
             lyToolbar.btnSimpan.setOnClickListener {
-                if (validate())
-                    simpan()
+                if (validate()) simpan()
+                simpan()
 
             }
         }
@@ -106,6 +134,7 @@ class TambahAlamatTokoActivity : MyActivity() {
 
     private fun simpan(){
         val reqData = AlamatToko(
+            id = alamat.id,
             tokoId = getTokoId(),
 //            label = binding.edtLabel.getString(),
             alamat = binding.edtAlamat.getString(),
@@ -119,11 +148,11 @@ class TambahAlamatTokoActivity : MyActivity() {
             email = binding.edtEmail.getString(),
             phone = binding.edtPhone.getString(),
         )
-        viewModel.create(reqData).observe(this) {
+        viewModel.update(reqData).observe(this) {
             when (it.state) {
                 State.SUCCES -> {
                     progress.dismiss()
-                    toastSuccess("Berhasil menambah alamat")
+                    toastSuccess("Berhasil merubah alamat")
                     onBackPressed()
                 }
                 State.ERROR -> {

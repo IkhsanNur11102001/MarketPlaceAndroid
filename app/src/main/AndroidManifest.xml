@@ -48,6 +48,7 @@
         <activity android:name=".ui.BaruActivity" />
         <activity android:name=".ui.alamat.ListAlamatTokoActivity" />
         <activity android:name=".ui.alamat.TambahAlamatTokoActivity" />
+        <activity android:name=".ui.alamat.EditAlamatToko" />
     </application>
 
 </manifest>
